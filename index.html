@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who's Listening - Spotify Gift</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #000; color: white; font-family: sans-serif; }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen">
+
+    <h1 class="text-3xl md:text-5xl font-bold mb-12 tracking-tight">Who's listening?</h1>
+    
+    <div class="flex flex-wrap justify-center gap-8 md:gap-12">
+        <a href="dashboard.html" target="_blank" class="flex flex-col items-center cursor-pointer group decoration-transparent">
+            <div class="w-32 h-32 md:w-40 md:h-40 rounded-lg overflow-hidden mb-4 group-hover:ring-[6px] ring-green-500 transition-all duration-300">
+                <img src="img/nana-sq.jpeg" alt="Syahrani Keiza" class="w-full h-full object-cover">
+            </div>
+            <p class="text-sm md:text-base text-gray-400 group-hover:text-white transition-colors">Syahrani Keiza</p>
+        </a>
+
+        <a href="dashboard.html" class="flex flex-col items-center cursor-pointer group decoration-transparent">
+            <div class="w-32 h-32 md:w-40 md:h-40 rounded-lg overflow-hidden mb-4 group-hover:ring-[6px] ring-green-500 transition-all duration-300">
+                <img src="img/mmo_sq.jpeg" alt="Maleakhi Nymmo" class="w-full h-full object-cover">
+            </div>
+            <p class="text-sm md:text-base text-gray-400 group-hover:text-white transition-colors">Maleakhi Nymmo</p>
+        </a>
+
+        <div class="flex flex-col items-center cursor-not-allowed opacity-50 group">
+            <div class="w-32 h-32 md:w-40 md:h-40 flex items-center justify-center bg-[#242424] rounded-lg mb-4">
+                <i class="fas fa-plus text-5xl text-gray-500"></i>
+            </div>
+            <p class="text-sm md:text-base text-gray-400">Add account</p>
+        </div>
+    </div>
+<audio id="birthday-song" src="img/semua-aku-dirayakan.mp3" autoplay loop></audio>
+</body>
+</html>

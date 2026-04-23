@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redeemables - Spotify</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { background-color: #000; color: white; font-family: sans-serif; overflow: hidden; }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #121212; }
+        ::-webkit-scrollbar-thumb { background: #4a4a4a; }
+    </style>
+</head>
+<body class="flex flex-col h-screen">
+
+    <div class="flex flex-1 overflow-hidden pb-20">
+        <aside class="hidden md:flex flex-col w-72 bg-black p-4 gap-2">
+            <div class="bg-[#121212] rounded-xl p-5 flex flex-col gap-4">
+                <a href="index.html" class="flex items-center gap-4 text-gray-400 font-bold cursor-pointer hover:text-white transition decoration-transparent">
+                    <i class="fas fa-house text-xl"></i>
+                    <span>Back to Profiles</span>
+                </a>
+                <div class="flex items-center gap-4 text-gray-400 font-bold cursor-pointer hover:text-white transition">
+                    <i class="fas fa-magnifying-glass text-xl"></i>
+                    <span>Search</span>
+                </div>
+            </div>
+            <div class="bg-[#121212] rounded-xl p-5 flex-1 flex flex-col gap-4">
+                <div class="flex items-center justify-between text-gray-400 font-bold">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-book text-xl"></i>
+                        <span>Your Library</span>
+                    </div>
+                </div>
+                <div class="mt-2 pt-4 border-t border-white/10 flex flex-col gap-4">
+                    <a href="dashboard.html" class="text-gray-400 hover:text-white text-sm font-semibold transition decoration-transparent">Album Home</a>
+                    <a href="about.html" class="text-gray-400 hover:text-white text-sm font-semibold transition decoration-transparent">About Birthday Boy</a>
+                    <a href="letter.html" class="text-gray-400 hover:text-white text-sm font-semibold transition decoration-transparent">A Letter For You</a>
+                    <a href="redeem.html" class="text-white text-sm font-semibold transition decoration-transparent">VVIP Redeemables</a>
+                </div>
+            </div>
+        </aside>
+
+        <main class="flex-1 overflow-y-auto bg-[#121212] relative content-area">
+            
+            <header class="sticky top-0 z-50 flex items-center justify-between px-6 py-3 bg-[#121212]/95 backdrop-blur-md border-b border-white/5">
+                <div class="flex items-center gap-4 text-gray-400">
+                    <a href="letter.html" class="bg-black/50 p-2 w-8 h-8 flex items-center justify-center rounded-full hover:text-white transition decoration-transparent"><i class="fas fa-chevron-left text-xs"></i></a>
+                    <button class="bg-black/50 p-2 w-8 h-8 flex items-center justify-center rounded-full opacity-50 cursor-not-allowed"><i class="fas fa-chevron-right text-xs"></i></button>
+                </div>
+                <div class="flex items-center gap-2 max-w-xl w-full justify-center">
+                    <div class="flex items-center bg-[#242424] hover:bg-[#2a2a2a] rounded-full px-4 py-3 w-full max-w-md transition-all">
+                        <i class="fas fa-search text-gray-400"></i>
+                        <input type="text" placeholder="What do you want to play?" class="bg-transparent border-none outline-none text-white ml-3 w-full placeholder-gray-400 text-sm">
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 text-gray-400">
+                    <div class="w-8 h-8 rounded-full overflow-hidden ring-1 ring-gray-600">
+                        <img src="img/nana-sq.jpeg" alt="User" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </header>
+
+            <div class="p-6 md:p-10 active-page">
+                <div class="mb-8">
+                    <h2 class="text-3xl font-bold mb-2 tracking-tight">The VVIP Redeemables</h2>
+                    <p class="text-gray-400 text-sm font-medium">Valid for a lifetime. Curated by your favorite person.</p>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div onclick="redeemCoupon('Free Kisses')" class="coupon bg-[#d94868] hover:bg-[#e05676] text-white">
+                        <div class="w-full flex justify-between items-start mb-4">
+                            <span class="font-bold text-lg md:text-xl leading-tight">Free<br>Kisses</span>
+                            <i class="fas fa-kiss-wink-heart text-3xl md:text-4xl opacity-80"></i>
+                        </div>
+                    </div>
+
+                    <div onclick="redeemCoupon('Free Hugs')" class="coupon bg-[#3d9154] hover:bg-[#47a661] text-white">
+                        <div class="w-full flex justify-between items-start mb-4">
+                            <span class="font-bold text-lg md:text-xl leading-tight">Free<br>Hugs</span>
+                            <i class="fas fa-hands-holding text-3xl md:text-4xl opacity-80"></i>
+                        </div>
+                    </div>
+
+                    <div onclick="redeemCoupon('Yes Day')" class="coupon bg-[#1d70b8] hover:bg-[#2381d4] text-white">
+                        <div class="w-full flex justify-between items-start mb-4">
+                            <span class="font-bold text-lg md:text-xl leading-tight">Yes<br>Day</span>
+                            <i class="fas fa-check-circle text-3xl md:text-4xl opacity-80"></i>
+                        </div>
+                    </div>
+
+                    <div onclick="redeemCoupon('Golden Retriever Treatment')" class="coupon bg-[#d48b3b] hover:bg-[#e39642] text-white">
+                        <div class="w-full flex justify-between items-start mb-4">
+                            <span class="font-bold text-lg md:text-xl leading-tight">Golden<br>Retriever<br>Treatment</span>
+                            <i class="fas fa-dog text-3xl md:text-4xl opacity-80 mt-2"></i>
+                        </div>
+                    </div>
+
+                    <div onclick="redeemCoupon('VVIP Ticket to My Heart')" class="coupon bg-[#7050a1] hover:bg-[#835ebd] text-white">
+                        <div class="w-full flex justify-between items-start mb-4">
+                            <span class="font-bold text-lg md:text-xl leading-tight">VVIP<br>Ticket to<br>My Heart</span>
+                            <i class="fas fa-heart text-3xl md:text-4xl opacity-80 mt-2"></i>
+                        </div>
+                    </div>
+
+                    <div onclick="redeemCoupon('Home Cooked Special')" class="coupon bg-[#d15e34] hover:bg-[#e66739] text-white">
+                        <div class="w-full flex justify-between items-start mb-4">
+                            <span class="font-bold text-lg md:text-xl leading-tight">Home<br>Cooked<br>Special</span>
+                            <i class="fas fa-utensils text-3xl md:text-4xl opacity-80 mt-2"></i>
+                        </div>
+                    </div>
+
+                    <div onclick="redeemCoupon('Work-Stress Reliever')" class="coupon bg-[#2b5a8c] hover:bg-[#346da8] text-white">
+                        <div class="w-full flex justify-between items-start mb-4">
+                            <span class="font-bold text-lg md:text-xl leading-tight">Work-Stress<br>Reliever</span>
+                            <i class="fas fa-spa text-3xl md:text-4xl opacity-80 mt-2"></i>
+                        </div>
+                    </div>
+
+                    <div onclick="clickme()" class="coupon bg-[#bd6e22] hover:bg-[#d67e27] text-white">
+                        <div class="w-full flex justify-between items-start mb-4">
+                            <span class="font-bold text-lg md:text-xl leading-tight">Click<br>Me!</span>
+                            <i class="fas fa-mug-hot text-3xl md:text-4xl opacity-80 mt-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="fixed bottom-0 w-full bg-black h-20 border-t border-white/10 flex items-center justify-between px-4 z-[100]">
+        <div class="flex items-center gap-4 w-1/3">
+            <img src="img/love-nana.jpg" class="w-14 h-14 rounded object-cover" alt="Cover">
+            <div>
+                <p class="text-sm font-bold text-white">Semua Aku Dirayakan</p>
+                <p class="text-xs text-gray-400">Nadin Amizah</p>
+            </div>
+            <i class="far fa-heart text-gray-400 hover:text-white cursor-pointer transition ml-2"></i>
+        </div>
+        <div class="flex flex-col items-center gap-1 w-1/3">
+            <div class="flex items-center gap-6 text-gray-400">
+                <i class="fas fa-shuffle text-sm"></i>
+                <i class="fas fa-backward-step text-lg"></i>
+                <div class="bg-white w-8 h-8 rounded-full flex items-center justify-center text-black hover:scale-105 transition cursor-pointer">
+                    <i class="fas fa-play ml-0.5 text-sm"></i>
+                </div>
+                <i class="fas fa-forward-step text-lg"></i>
+                <i class="fas fa-repeat text-sm"></i>
+            </div>
+            <div class="w-full max-w-md flex items-center gap-2">
+                <span class="text-[11px] text-gray-400">04:04</span>
+                <div class="flex-1 h-1 bg-gray-600 rounded-full"><div class="h-full w-1/3 bg-white rounded-full"></div></div>
+                <span class="text-[11px] text-gray-400">24:00</span>
+            </div>
+        </div>
+        <div class="flex items-center justify-end gap-4 w-1/3 text-gray-400">
+            <i class="fas fa-list-ul text-sm hover:text-white cursor-pointer"></i>
+            <i class="fas fa-computer text-sm hover:text-white cursor-pointer"></i>
+            <div class="flex items-center gap-2 w-24">
+                <i class="fas fa-volume-high text-sm hover:text-white cursor-pointer"></i>
+                <div class="flex-1 h-1 bg-gray-600 rounded-full cursor-pointer"><div class="h-full w-3/4 bg-white hover:bg-[#1db954] rounded-full"></div></div>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
