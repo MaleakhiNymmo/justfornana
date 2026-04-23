@@ -55,6 +55,10 @@ function redeemCoupon(couponName) {
     // Selain alert, kamu bisa tambahkan suara "ding" agar makin seru
     alert(`Yeay! Kamu memilih: ${couponName}\nJangan lupa screenshot dan kirim ke aku ya! ❤️`);
 }
+function playBirthdaySong() {
+    const audio = document.getElementById('birthday-song');
+    audio.play();
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     const audio = document.getElementById('birthday-song');
